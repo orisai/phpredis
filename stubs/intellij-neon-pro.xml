@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE neon PUBLIC "-//NEON//Neon plugin XML V0.0.1//EN" "../.idea/intellij-neon-pro/xmlSources/Neon.xsd">
+<neon vendor="orisai/nette-predis" version="1">
+	<extensions>
+		<extension type="OriNette\Predis\DI\PredisExtension">
+			<schema>
+				<structure>
+					<field name="connections" default="[]">
+						<arrayOf>
+							<value>
+								<structure>
+									<field name="parameters" default="[]">
+										<arrayOf>
+											<value>
+												<mixed/>
+											</value>
+										</arrayOf>
+									</field>
+									<field name="options" default="[]">
+										<arrayOf>
+											<value>
+												<mixed/>
+											</value>
+										</arrayOf>
+									</field>
+									<field name="autowired" default="false">
+										<bool/>
+									</field>
+								</structure>
+							</value>
+						</arrayOf>
+					</field>
+					<field name="session" default="null">
+						<structure>
+							<field name="connection">
+								<string/>
+							</field>
+							<field name="sessionTtl" default="null">
+								<int/>
+								<null/>
+							</field>
+							<field name="lockTtl" default="null">
+								<int/>
+								<null/>
+							</field>
+						</structure>
+						<null/>
+					</field>
+				</structure>
+			</schema>
+			<services>
+				<service name="sessionHandler" type="OriNette\Predis\Http\SessionHandler"/>
+			</services>
+		</extension>
+	</extensions>
+</neon>
